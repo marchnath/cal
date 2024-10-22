@@ -31,7 +31,7 @@ export default function Calculator() {
       mult <= 1
     ) {
       alert(
-        "Please enter valid numbers. Amount and Steps should be positive, and Multiplier should be greater than 1."
+        "Пожалуйста, введите корректные числа. Сумма и Количество шагов должны быть положительными, а Множитель должен быть больше 1."
       );
       return;
     }
@@ -50,71 +50,71 @@ export default function Calculator() {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
-      <h1 className="text-2xl font-bold mb-6 text-center">Calculator</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">Калькулятор</h1>
 
       <div className="mb-4">
-        <Label htmlFor="calculator-type">Calculator Type</Label>
+        <Label htmlFor="calculator-type">Тип калькулятора</Label>
         <Select defaultValue="all-steps">
           <SelectTrigger id="calculator-type">
-            <SelectValue placeholder="Select a calculator" />
+            <SelectValue placeholder="Выберите калькулятор" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all-steps">All Steps</SelectItem>
+            <SelectItem value="all-steps">Все шаги</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
       <div className="space-y-4">
         <div>
-          <Label htmlFor="amount">Amount ($)</Label>
+          <Label htmlFor="amount">Сумма ($)</Label>
           <Input
             id="amount"
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            placeholder="e.g., 1000"
+            placeholder="например, 1000"
           />
         </div>
 
         <div>
-          <Label htmlFor="steps">Number of Steps</Label>
+          <Label htmlFor="steps">Количество шагов</Label>
           <Input
             id="steps"
             type="number"
             value={steps}
             onChange={(e) => setSteps(e.target.value)}
-            placeholder="e.g., 7"
+            placeholder="например, 7"
           />
         </div>
 
         <div>
-          <Label htmlFor="multiplier">Multiplier</Label>
+          <Label htmlFor="multiplier">Множитель</Label>
           <Input
             id="multiplier"
             type="number"
             value={multiplier}
             onChange={(e) => setMultiplier(e.target.value)}
-            placeholder="e.g., 2"
+            placeholder="например, 2"
           />
         </div>
 
         <Button onClick={calculate} className="w-full">
-          Calculate
+          Рассчитать
         </Button>
       </div>
 
       {results.length > 0 && (
         <div className="mt-6">
-          <h2 className="text-xl font-semibold mb-2">Results:</h2>
+          <h2 className="text-xl font-semibold mb-2">Результаты:</h2>
           <ul className="list-decimal pl-5">
             {results.map((result, index) => (
               <li key={index} className="mb-1">
-                Step {index + 1}: ${result.toFixed(2)}
+                Шаг {index + 1}: ${result.toFixed(2)}
               </li>
             ))}
           </ul>
           <p className="mt-2 font-semibold">
-            Total: ${results.reduce((sum, num) => sum + num, 0).toFixed(2)}
+            Итого: ${results.reduce((sum, num) => sum + num, 0).toFixed(2)}
           </p>
         </div>
       )}
