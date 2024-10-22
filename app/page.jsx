@@ -107,11 +107,17 @@ export default function Calculator() {
         <div className="mt-6">
           <h2 className="text-xl font-semibold mb-2">Результаты:</h2>
           <ul className="list-decimal pl-5">
-            {results.map((result, index) => (
-              <li key={index} className="mb-1">
-                Шаг {index + 1}: ${result.toFixed(2)}
-              </li>
-            ))}
+            {results.map((result, index) => {
+              const percentage = ((result / parseFloat(amount)) * 100).toFixed(
+                2
+              ); // Calculate percentage
+              return (
+                <li key={index} className="mb-1">
+                  Шаг {index + 1}: ${result.toFixed(2)} | {percentage}%{" "}
+                  {/* Display percentage */}
+                </li>
+              );
+            })}
           </ul>
           <p className="mt-2 font-semibold">
             Итого: ${results.reduce((sum, num) => sum + num, 0).toFixed(2)}
