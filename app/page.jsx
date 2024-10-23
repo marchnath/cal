@@ -112,7 +112,7 @@ export default function Calculator() {
       <RiCalculatorFill className="text-4xl text-blue-500 mt-4 mb-6 lg:mb-12" />
       {/* <h1 className="text-2xl font-bold mb-6 text-center">Калькулятор</h1> */}
       <div className="lg:flex lg:gap-8 lg:items-start">
-        <div className="w-full lg:w-[600px] mb-6 lg:mb-0 bg-white rounded-lg shadow-lg p-6">
+        <div className="w-full lg:w-[600px] mb-6 lg:mb-0 bg-white rounded-3xl shadow-lg p-6">
           <div className="mb-4">
             <Label htmlFor="calculator-type" className="text-stone-500">
               Тип калькулятора
@@ -191,7 +191,7 @@ export default function Calculator() {
         </div>
 
         {results.length > 0 && (
-          <div className="flex-1">
+          <div className="flex-1 bg-white rounded-3xl shadow-lg p-6">
             <Table>
               <TableHeader>
                 <TableRow>
