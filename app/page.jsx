@@ -128,8 +128,8 @@ export default function Calculator() {
                 <SelectValue placeholder="Выберите калькулятор" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all-steps">Форекс</SelectItem>
-                <SelectItem value="crypto">Крипто</SelectItem>
+                <SelectItem value="all-steps">Крипто</SelectItem>
+                <SelectItem value="crypto">Форекс</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -191,15 +191,14 @@ export default function Calculator() {
         </div>
 
         {results.length > 0 && (
-          <div className="flex-1 bg-white rounded-3xl shadow-lg p-6">
-            <Table>
+          <div className="flex-1 bg-white rounded-3xl w-fit shadow-lg p-6">
+            <Table className="">
               <TableHeader>
                 <TableRow>
                   <TableHead>Шаг</TableHead>
                   {calculatorType === "crypto" ? (
                     <>
                       <TableHead>Размер лота</TableHead>
-                      <TableHead>Сумма</TableHead>
                     </>
                   ) : (
                     <>
@@ -209,14 +208,13 @@ export default function Calculator() {
                   )}
                 </TableRow>
               </TableHeader>
-              <TableBody className="text-lg">
+              <TableBody className="text-lg ">
                 {results.map((result) => (
                   <TableRow key={result.step}>
                     <TableCell>{result.step}</TableCell>
                     {calculatorType === "crypto" ? (
                       <>
                         <TableCell>{result.lotSize}</TableCell>
-                        <TableCell>${result.amount}</TableCell>
                       </>
                     ) : (
                       <>
@@ -234,12 +232,6 @@ export default function Calculator() {
                         {results
                           .reduce((sum, r) => sum + r.lotSize, 0)
                           .toFixed(4)}
-                      </TableCell>
-                      <TableCell>
-                        $
-                        {results
-                          .reduce((sum, r) => sum + r.amount, 0)
-                          .toFixed(2)}
                       </TableCell>
                     </>
                   ) : (
